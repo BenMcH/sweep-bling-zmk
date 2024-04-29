@@ -1,0 +1,83 @@
+// Copyright (c) 2022 The ZMK Contributors
+// SPDX-License-Identifier: MIT
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+
+// Layers
+
+#define NUM_L 1
+#define SYM_L 2
+
+/ {
+    behaviors {
+        ht: hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <100>;
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        fn_layer {
+            if-layers = <1 2>;
+            then-layer = <4>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <
+&kp Q       &kp W       &kp E        &kp R         &kp T      &kp Y        &kp U              &kp I        &kp O            &kp P
+&ht LGUI A  &ht LALT S  &ht LCTRL D  &ht LSHIFT F  &kp G      &kp H        &ht RIGHT_SHIFT J  &ht RCTRL K  &ht RIGHT_ALT L  &ht RIGHT_GUI SEMI
+&kp Z       &kp X       &kp C        &kp V         &kp B      &kp N        &kp M              &kp COMMA    &kp DOT          &kp FSLH
+                                     &kp SPACE     &kp TAB    &lt 2 ENTER  &lt 1 BSPC
+            >;
+        };
+
+        num_layer {
+            bindings = <
+&kp LBKT       &kp N7  &kp N8  &kp N9  &kp RBKT     &kp HOME  &kp PG_DN  &kp PG_UP  &kp END   &kp COLON
+&kp BACKSLASH  &kp N4  &kp N5  &kp N6  &kp EQUAL    &kp LARW  &kp DARW   &kp UARW   &kp RARW  &kp SQT
+&kp GRAVE      &kp N1  &kp N2  &kp N3  &kp N0       &trans    &trans     &trans     &trans    &trans
+                               &trans  &kp ESC      &trans    &trans
+            >;
+        };
+
+        sym_layer {
+            bindings = <
+&kp LBRC   &kp AMPS  &kp ASTRK  &kp LPAR   &kp RBRC    &kp CARET  &kp LPAR   &kp RPAR   &kp RBKT  &kp TILDE
+&kp PIPE   &kp DLLR  &kp PRCNT  &kp CARET  &kp PLUS    &kp ASTRK  &kp MINUS  &kp EQUAL  &kp BSLH  &kp GRAVE
+&kp TILDE  &kp EXCL  &kp AT     &kp HASH   &kp RPAR    &kp AMPS   &kp UNDER  &kp PLUS   &kp PIPE  &trans
+                                &trans     &trans      &trans     &trans
+            >;
+        };
+
+        sys_layer {
+            bindings = <
+&sys_reset   &trans  &trans  &trans      &bt BT_SEL 0    &trans  &trans  &trans  &trans  &sys_reset
+&bootloader  &trans  &trans  &trans      &bt BT_SEL 1    &trans  &trans  &trans  &trans  &bootloader
+&trans       &trans  &trans  &bt BT_CLR  &bt BT_SEL 2    &trans  &trans  &trans  &trans  &trans
+                             &trans      &trans          &trans  &trans
+            >;
+        };
+
+        function_layer {
+            bindings = <
+&kp F12  &kp F7  &kp F8  &kp F9  &kp RBKT          &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &kp COLON
+&kp F11  &kp F4  &kp F5  &kp F6  &kp SCROLLLOCK    &kp LEFT  &kp UP     &kp DOWN   &kp RIGHT  &kp SQT
+&kp F10  &kp F1  &kp F2  &kp F3  &kp N0            &trans    &trans     &trans     &trans     &trans
+                         &trans  &kp ESC           &trans    &trans
+            >;
+        };
+    };
+};
