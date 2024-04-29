@@ -15,7 +15,7 @@
         ht: hold_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
+            flavor = "balanced";
             tapping-term-ms = <220>;
             quick-tap-ms = <150>;
             require-prior-idle-ms = <100>;
@@ -29,6 +29,15 @@
         fn_layer {
             if-layers = <1 2>;
             then-layer = <4>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        cap_word {
+            bindings = <&caps_word>;
+            key-positions = <13 16>;
         };
     };
 
