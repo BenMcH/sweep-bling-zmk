@@ -41,6 +41,11 @@
             bindings = <&caps_word>;
             key-positions = <13 16>;
         };
+
+        quote {
+            bindings = <&kp SINGLE_QUOTE>;
+            key-positions = <31 32>;
+        };
     };
 
     keymap {
