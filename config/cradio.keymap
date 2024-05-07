@@ -50,13 +50,13 @@
 
         esc_default_layer {
             bindings = <&kp ESCAPE>;
-            key-positions = <31 30>;
+            key-positions = <30 24>;
             layers = <0>;
         };
 
         lpar_sym {
             bindings = <&kp LEFT_PARENTHESIS>;
-            key-positions = <30 31>;
+            key-positions = <30 24>;
             layers = <2>;
         };
 
@@ -68,7 +68,7 @@
 
         delete {
             bindings = <&kp DELETE>;
-            key-positions = <33 26>;
+            key-positions = <33 25>;
             layers = <0>;
         };
     };
