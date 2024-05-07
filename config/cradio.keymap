@@ -48,9 +48,28 @@
             key-positions = <30 33>;
         };
 
-        esc {
+        esc_default_layer {
             bindings = <&kp ESCAPE>;
             key-positions = <31 30>;
+            layers = <0>;
+        };
+
+        lpar_sym {
+            bindings = <&kp LEFT_PARENTHESIS>;
+            key-positions = <30 31>;
+            layers = <2>;
+        };
+
+        bt_layer {
+            bindings = <&sl 2>;
+            key-positions = <0 9>;
+            layers = <0>;
+        };
+
+        delete {
+            bindings = <&kp DELETE>;
+            key-positions = <33 26>;
+            layers = <0>;
         };
     };
 
@@ -68,19 +87,19 @@
 
         num_layer {
             bindings = <
-&kp LBKT       &kp N7  &kp N8  &kp N9  &kp RBKT     &kp HOME  &kp PG_DN  &kp PG_UP  &kp END   &kp COLON
-&kp BACKSLASH  &kp N4  &kp N5  &kp N6  &kp EQUAL    &kp LARW  &kp DARW   &kp UARW   &kp RARW  &kp SQT
-&kp GRAVE      &kp N1  &kp N2  &kp N3  &kp N0       &trans    &trans     &trans     &trans    &trans
-                               &sl 3   &kp ESC      &trans    &trans
+&kp LBKT       &kp N7  &kp N8  &kp N9        &kp RBKT         &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &kp COLON
+&kp BACKSLASH  &kp N4  &kp N5  &kp N6        &kp EQUAL        &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp SQT
+&kp GRAVE      &kp N1  &kp N2  &kp N3        &kp BACKSLASH    &trans    &trans     &trans     &trans     &trans
+                               &kp NUMBER_0  &kp MINUS        &trans    &trans
             >;
         };
 
         sym_layer {
             bindings = <
-&kp LBRC   &kp AMPS  &kp ASTRK  &kp LPAR   &kp RBRC    &kp CARET  &kp LPAR   &kp RPAR   &kp RBKT  &kp TILDE
-&kp PIPE   &kp DLLR  &kp PRCNT  &kp CARET  &kp PLUS    &kp ASTRK  &kp MINUS  &kp EQUAL  &kp BSLH  &kp GRAVE
-&kp TILDE  &kp EXCL  &kp AT     &kp HASH   &kp RPAR    &kp AMPS   &kp UNDER  &kp PLUS   &kp PIPE  &trans
-                                &trans     &trans      &trans     &trans
+&kp LBRC   &kp AMPS  &kp ASTRK  &kp LPAR               &kp RBRC          &kp CARET  &kp LPAR   &kp RPAR   &kp RBKT  &kp TILDE
+&kp PIPE   &kp DLLR  &kp PRCNT  &kp CARET              &kp PLUS          &kp ASTRK  &kp MINUS  &kp EQUAL  &kp BSLH  &kp GRAVE
+&kp TILDE  &kp EXCL  &kp AT     &kp HASH               &kp PIPE          &kp AMPS   &kp UNDER  &kp PLUS   &kp PIPE  &trans
+                                &kp RIGHT_PARENTHESIS  &kp UNDERSCORE    &trans     &trans
             >;
         };
 
