@@ -16,7 +16,7 @@
 / {
     behaviors {
         // Left-hand home row mods — trigger only on right-hand keypress
-        hml: hold_tap {
+        hml: left_hold_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
@@ -29,7 +29,7 @@
         };
 
         // Right-hand home row mods — trigger only on left-hand keypress
-        hmr: hold_tap {
+        hmr: right_hold_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
